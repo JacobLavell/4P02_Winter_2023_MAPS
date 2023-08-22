@@ -1,5 +1,3 @@
-# 4P02_Winter_2023_MAPS
-
 # COSC 4P02: Museums Assistance Application - Interactive Maps
 
 Professor Naser Ezzati-Jivan, Winter 2023 <br><br>
