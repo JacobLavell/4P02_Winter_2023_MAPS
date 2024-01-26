@@ -95,14 +95,14 @@ $(document).ready(function() {
 
 	cssVars();
 
-	$('.video-link').magnificPopup({
+	/* $('.video-link').magnificPopup({
 		type: 'iframe',
 		mainClass: 'mfp-fade',
 		removalDelay: 160,
 		preloader: false,
 		showCloseBtn: false,
 		fixedContentPos: false
-	});
+	});*/
 });
 
 document.addEventListener('DOMContentLoaded', function () {

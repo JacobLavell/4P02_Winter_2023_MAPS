@@ -67,7 +67,7 @@
     />
     <meta name="twitter:creator" content="@NOTLMuseum" />
 
-    <!--<link rel="stylesheet" type="text/css" href="/shared/skins/default/styles/bootstrap.css" media="screen">-->
+    <!-- <link rel="stylesheet" type="text/css" href="/shared/skins/default/styles/bootstrap.css" media="screen"> -->
     <link
       rel="stylesheet"
       type="text/css"
@@ -79,7 +79,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato&amp;family=Lora&amp;family=Montserrat:wght@500;700&amp;Libre+Baskerville:wght@700&amp;display=swap"
       rel="stylesheet"
     />
-    <!--<link rel="stylesheet" type="text/css" href="/shared/skins/default/styles/screen.css?v=4" media="screen">-->
+    <!-- <link rel="stylesheet" type="text/css" href="/shared/skins/default/styles/screen.css?v=4" media="screen"> -->
     <link
       rel="stylesheet"
       type="text/css"
@@ -98,27 +98,12 @@
       href="shared/skins/default/styles/print.css"
       media="print"
     />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="shared/includes/styles/magnific/magnific-popup.css"
-      media="screen"
-    />
-    <!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" media="screen">-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="shared/skins/default/styles/slideshow.css"
-      media="screen"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="shared/skins/default/styles/calendar.css"
-      media="screen"
-    />
+    <!-- <link rel="stylesheet" type="text/css" href="shared/includes/styles/magnific/magnific-popup.css" media="screen"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" media="screen"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="shared/skins/default/styles/slideshow.css" media="screen"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="shared/skins/default/styles/calendar.css" media="screen" /> -->
 
-    <!--<link rel="stylesheet" type="text/css" href="/shared/skins/default/styles/queries.css?v=4" media="screen">-->
+    <!-- <link rel="stylesheet" type="text/css" href="/shared/skins/default/styles/queries.css?v=4" media="screen"> -->
     <link
       rel="stylesheet"
       type="text/css"
@@ -8595,14 +8580,8 @@
       type="text/javascript"
       src="shared/skins/default/scripts/scripts.js"
     ></script>
-    <script
-      type="text/javascript"
-      src="/shared/includes/javascript/magnific/magnific-popup.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="/shared/skins/default/scripts/slideshow.js"
-    ></script>
+    <!-- <script type="text/javascript" src="/shared/includes/javascript/magnific/magnific-popup.min.js" ></script> -->
+    <!-- <script type="text/javascript" src="/shared/skins/default/scripts/slideshow.js"></script> -->
 
     <!--[if lt IE 8]>
       <link
@@ -8673,10 +8652,8 @@
 
   <header id="header">
     <div class="wrapper">
-      <!--<div id="logo"><a href="/"><img src="/shared/skins/default/images/logo.svg"
-                    alt="Niagara-on-the-Lake Museum"></a></div>-->
       <div id="logo">
-        <a href="/"
+        <a href="https://www.notlmuseum.ca/"
           ><img
             src="shared/skins/default/images/logo.svg"
             alt="Niagara-on-the-Lake Museum"
@@ -8686,7 +8663,7 @@
       <nav id="navigation">
         <ul id="menu">
           <li class="has_submenu">
-            <a href="/about"><span>About</span></a>
+            <a href="https://www.notlmuseum.ca/about"><span>About</span></a>
             <ul class="closed_menu">
               <li class="about_us">
                 <a href="https://notlmuseum.ca/about">About Us</a>
@@ -8820,7 +8797,7 @@
     </div>
   </header>
 
-  <section id="content-container" class="inside">
+  <section id="content-container" class="inside" onload="jsonData()">
     <div id="interactiveMap">
       <picture>
         <source
@@ -9055,6 +9032,8 @@
             <a target="_blank" href="http://www.symetricproductions.com"
               >Web Design & Development by Symetric_</a
             >
+            <br/>
+            and modified by J.L.
           </p>
         </div>
       </div>
@@ -9065,6 +9044,25 @@
     var modal = document.getElementById("modal1");
     var title = document.getElementById("modalTitle");
     var span = document.getElementById("close");
+
+    var answers = [];
+    var answersLength;
+
+    function jsonData() {
+      // Gets the data from the json file.
+      fetch("./shared/data.json")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          answersLength = data.length;
+          for (var i = 0; i < data.length; i++) {
+            addQuestion(data[i], i + 1);
+            answers[i] = data[i].answer;
+          }
+          console.log(answers);
+        });
+    }
 
     // Display the modal.
     function displayModal(titleData) {
