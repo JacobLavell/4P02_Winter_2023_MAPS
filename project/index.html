@@ -8797,7 +8797,7 @@
     </div>
   </header>
 
-  <section id="content-container" class="inside" onload="jsonData()">
+  <section id="content-container" class="inside">
     <div id="interactiveMap">
       <picture>
         <source
@@ -9032,8 +9032,8 @@
             <a target="_blank" href="http://www.symetricproductions.com"
               >Web Design & Development by Symetric_</a
             >
-            <br/>
-            and modified by J.L.
+            <br />
+            <!--and modified by -->
           </p>
         </div>
       </div>
@@ -9043,10 +9043,10 @@
   <script>
     var modal = document.getElementById("modal1");
     var title = document.getElementById("modalTitle");
+    var description = document.getElementById("modalDescription");
     var span = document.getElementById("close");
 
-    var answers = [];
-    var answersLength;
+    var exhibitData;
 
     function jsonData() {
       // Gets the data from the json file.
@@ -9055,18 +9055,19 @@
           return response.json();
         })
         .then((data) => {
-          answersLength = data.length;
-          for (var i = 0; i < data.length; i++) {
-            addQuestion(data[i], i + 1);
-            answers[i] = data[i].answer;
-          }
-          console.log(answers);
+          var name = Object.values(data);
+          exhibitData = Object.values(data);
+          console.log(name);
+          console.log(name[0]);
+          console.log(name[0].name);
         });
+        //exhibitData = name;
     }
 
     // Display the modal.
     function displayModal(titleData) {
-      title.innerText = titleData;
+      title.innerText = exhibitData[titleData].name;
+      description.innerText = exhibitData[titleData].text;
       modal.style.display = "block";
     }
 
@@ -9089,30 +9090,30 @@
     };
 
     /*var modalLang = document.getElementById("modalLang");
-    var spanLang = document.getElementById("closeLang");
+        var spanLang = document.getElementById("closeLang");
 
-    // Display the modal.
-    function displayLang() {
-      modalLang.style.display = "block";
-    }
+        // Display the modal.
+        function displayLang() {
+          modalLang.style.display = "block";
+        }
 
-    // Hides the modal on clicking the X.
-    spanLang.onclick = function () {
-      modalLang.style.display = "none";
-    };
+        // Hides the modal on clicking the X.
+        spanLang.onclick = function () {
+          modalLang.style.display = "none";
+        };
 
-    var modalLang = document.getElementById("modalLang");
-    var spanLang = document.getElementById("closeLang");
+        var modalLang = document.getElementById("modalLang");
+        var spanLang = document.getElementById("closeLang");
 
-    // Display the modal.
-    function displayLang() {
-      modalLang.style.display = "block";
-    }
+        // Display the modal.
+        function displayLang() {
+          modalLang.style.display = "block";
+        }
 
-    // Hides the modal on clicking the X.
-    spanLang.onclick = function () {
-      modalLang.style.display = "none";
-    };*/
+        // Hides the modal on clicking the X.
+        spanLang.onclick = function () {
+          modalLang.style.display = "none";
+        };*/
 
     // Hides the modal when clicking outside it.
     window.onclick = function (event) {
@@ -9123,8 +9124,8 @@
         modalInfo.style.display = "none";
       }
       /*if (event.target == modalLang) {
-        modalLang.style.display = "none";
-      }*/
+            modalLang.style.display = "none";
+          }*/
     };
   </script>
   <!--
