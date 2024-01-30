@@ -27,7 +27,7 @@
       sizes="16x16"
       href="/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <!-- <link rel="manifest" href="/favicon/site.webmanifest" /> -->
     <link
       rel="mask-icon"
       href="/favicon/safari-pinned-tab.svg"
@@ -9026,6 +9026,7 @@
             Copyright &copy; Niagara-on-the-Lake Museum
             <script type="text/javascript">
               document.write(new Date().getFullYear());
+              //document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
             </script>
           </p>
           <p class="muted">
@@ -9055,13 +9056,8 @@
           return response.json();
         })
         .then((data) => {
-          var name = Object.values(data);
           exhibitData = Object.values(data);
-          console.log(name);
-          console.log(name[0]);
-          console.log(name[0].name);
         });
-        //exhibitData = name;
     }
 
     // Display the modal.
