@@ -158,7 +158,7 @@ function scrollDownToPage( anchor ) {
 	return;
 }
 
-window.addEventListener("load", (event) => {
-	jsonData();
-  });
+window.addEventListener("load", () => {
+  jsonData();
+});
   

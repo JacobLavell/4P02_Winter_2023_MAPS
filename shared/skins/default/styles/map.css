@@ -42,7 +42,7 @@
   color: #929292;
   float: right;
   font-size: 16vw;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .close:hover,
@@ -54,12 +54,11 @@
 
 /* Language modal */
 #modalLang-content {
-  padding: 7%;
-  padding-top: 18%;
+  padding: 18% 7% 7%;
 }
 
 .buttonLang {
-  color: #ffffff;
+  color: #fff;
   background-color: #c50019;
   width: 80%;
   height: 40px;
@@ -68,7 +67,6 @@
   font-size: 18px;
 }
 
-/* */
 #interactiveMap {
   position: relative;
   padding: 40px 5% 0 5%;
@@ -269,26 +267,14 @@
 
 /* Desktop */
 @media (min-width: 1200px) {
-  #icon1 {
-    top: 45.5%;
-  }
-
+  #icon1,
   #icon2 {
     top: 45.5%;
   }
 
-  #icon3 {
-    top: 63.5%;
-  }
-
-  #icon4 {
-    top: 63.5%;
-  }
-
-  #icon5 {
-    top: 63.5%;
-  }
-
+  #icon3,
+  #icon4,
+  #icon5,
   #icon6 {
     top: 63.5%;
   }
